@@ -8,16 +8,18 @@
 import UIKit
 
 class MainTableViewWithImageCell: UITableViewCell {
-
+    
+    @IBOutlet var mainImageView: UIImageView!
+    @IBOutlet var infoLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+        
+        mainImageView.image = .empty
+        infoLabel.text = "최근 검색어가 없어요"
+        infoLabel.font = .largeTitleBold
+        infoLabel.textAlignment = .center
+        
     }
     
 }

@@ -42,6 +42,10 @@ extension MainViewController {
         searchTableView.delegate = self
         searchTableView.dataSource = self
         
+        let xib = UINib(nibName: MainTableViewWithImageCell.identifier, bundle: nil)
+        
+        searchTableView.register(xib, forCellReuseIdentifier: MainTableViewWithImageCell.identifier)
+        
     }
 }
 
@@ -52,7 +56,24 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        <#code#>
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: MainTableViewWithImageCell.identifier) as! MainTableViewWithImageCell
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
+        if searchKeywords.count == 0 {
+            return UIScreen.main.bounds.height
+        }
+        
+        return 80
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        tableView.reloadRows(at: [indexPath], with: .fade)
     }
     
     
