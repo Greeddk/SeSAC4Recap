@@ -254,7 +254,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xcA-uO-OBE">
-                                <rect key="frame" x="8" y="95" width="50" height="30"/>
+                                <rect key="frame" x="8" y="91" width="50" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="50" id="ec9-NY-Mr2"/>
                                 </constraints>
@@ -262,12 +262,12 @@
                                 <state key="normal" title="Button"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p5e-WA-xBw">
-                                <rect key="frame" x="62" y="95" width="50" height="30"/>
+                                <rect key="frame" x="62" y="91" width="50" height="30"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="Button"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AOY-pb-BxF">
-                                <rect key="frame" x="116" y="95" width="50" height="30"/>
+                                <rect key="frame" x="116" y="91" width="50" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="50" id="NEY-a7-7eV"/>
                                 </constraints>
@@ -275,7 +275,7 @@
                                 <state key="normal" title="Button"/>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="nnK-3L-A0b">
-                                <rect key="frame" x="8" y="133" width="377" height="685"/>
+                                <rect key="frame" x="0.0" y="129" width="393" height="689"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="aAp-dd-voi">
                                     <size key="itemSize" width="128" height="128"/>
@@ -292,10 +292,34 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                         </collectionViewCellContentView>
                                     </collectionViewCell>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="LiC-XR-5fn">
+                                        <rect key="frame" x="265" y="0.0" width="128" height="128"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="7hx-yM-nri">
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                    </collectionViewCell>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="MoB-lj-X17">
+                                        <rect key="frame" x="0.0" y="138" width="128" height="128"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="fNS-Rd-i9v">
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                    </collectionViewCell>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="QtX-GV-ZN6">
+                                        <rect key="frame" x="265" y="138" width="128" height="128"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="1Ba-y3-md2">
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </collectionViewCellContentView>
+                                    </collectionViewCell>
                                 </cells>
                             </collectionView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ex0-Oz-iRz">
-                                <rect key="frame" x="170" y="95" width="50" height="30"/>
+                                <rect key="frame" x="170" y="91" width="50" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="50" id="dA0-aZ-wm0"/>
                                 </constraints>
@@ -306,9 +330,9 @@
                         <viewLayoutGuide key="safeArea" id="H7I-IU-UUS"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="AOY-pb-BxF" firstAttribute="top" secondItem="Ya1-oX-J2v" secondAttribute="bottom" constant="8" id="0ZU-oj-Cab"/>
-                            <constraint firstItem="Ex0-Oz-iRz" firstAttribute="top" secondItem="Ya1-oX-J2v" secondAttribute="bottom" constant="8" id="B3A-my-KmO"/>
-                            <constraint firstItem="nnK-3L-A0b" firstAttribute="leading" secondItem="H7I-IU-UUS" secondAttribute="leading" constant="8" id="Eli-8h-tQQ"/>
+                            <constraint firstItem="AOY-pb-BxF" firstAttribute="top" secondItem="Ya1-oX-J2v" secondAttribute="bottom" constant="4" id="0ZU-oj-Cab"/>
+                            <constraint firstItem="Ex0-Oz-iRz" firstAttribute="top" secondItem="Ya1-oX-J2v" secondAttribute="bottom" constant="4" id="B3A-my-KmO"/>
+                            <constraint firstItem="nnK-3L-A0b" firstAttribute="leading" secondItem="H7I-IU-UUS" secondAttribute="leading" id="Eli-8h-tQQ"/>
                             <constraint firstItem="Ya1-oX-J2v" firstAttribute="top" secondItem="H7I-IU-UUS" secondAttribute="top" constant="8" id="GxW-id-WRX"/>
                             <constraint firstItem="Ya1-oX-J2v" firstAttribute="leading" secondItem="H7I-IU-UUS" secondAttribute="leading" constant="8" id="KUn-Dm-Lv5"/>
                             <constraint firstItem="p5e-WA-xBw" firstAttribute="leading" secondItem="xcA-uO-OBE" secondAttribute="trailing" constant="4" id="MnC-Nq-EAI"/>
@@ -317,11 +341,11 @@
                             <constraint firstItem="nnK-3L-A0b" firstAttribute="top" secondItem="p5e-WA-xBw" secondAttribute="bottom" constant="8" id="U0i-e5-89J"/>
                             <constraint firstItem="H7I-IU-UUS" firstAttribute="trailing" secondItem="Ya1-oX-J2v" secondAttribute="trailing" constant="8" id="am5-6i-DF3"/>
                             <constraint firstItem="p5e-WA-xBw" firstAttribute="width" secondItem="xcA-uO-OBE" secondAttribute="width" id="eEb-PA-BZp"/>
-                            <constraint firstItem="p5e-WA-xBw" firstAttribute="top" secondItem="Ya1-oX-J2v" secondAttribute="bottom" constant="8" id="fh6-50-H4I"/>
-                            <constraint firstItem="H7I-IU-UUS" firstAttribute="trailing" secondItem="nnK-3L-A0b" secondAttribute="trailing" constant="8" id="vcW-1p-qVu"/>
+                            <constraint firstItem="p5e-WA-xBw" firstAttribute="top" secondItem="Ya1-oX-J2v" secondAttribute="bottom" constant="4" id="fh6-50-H4I"/>
+                            <constraint firstItem="H7I-IU-UUS" firstAttribute="trailing" secondItem="nnK-3L-A0b" secondAttribute="trailing" id="vcW-1p-qVu"/>
                             <constraint firstItem="Ex0-Oz-iRz" firstAttribute="leading" secondItem="AOY-pb-BxF" secondAttribute="trailing" constant="4" id="vj4-8S-kxz"/>
                             <constraint firstItem="AOY-pb-BxF" firstAttribute="leading" secondItem="p5e-WA-xBw" secondAttribute="trailing" constant="4" id="xDw-Eb-znL"/>
-                            <constraint firstItem="xcA-uO-OBE" firstAttribute="top" secondItem="Ya1-oX-J2v" secondAttribute="bottom" constant="8" id="xPk-OT-dbV"/>
+                            <constraint firstItem="xcA-uO-OBE" firstAttribute="top" secondItem="Ya1-oX-J2v" secondAttribute="bottom" constant="4" id="xPk-OT-dbV"/>
                         </constraints>
                     </view>
                     <connections>
@@ -336,6 +360,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7cv-rN-wNf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4991.6030534351139" y="-35.211267605633807"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="ZzS-cj-O9p">
+            <objects>
+                <viewController id="Kce-ph-aVu" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2RB-HO-4ye">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="tLD-WF-PZG"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UJy-BX-OCS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5906" y="-35"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="47s-dT-twk">

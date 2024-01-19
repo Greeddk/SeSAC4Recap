@@ -36,7 +36,7 @@ class MainViewController: UIViewController {
     @objc private func allClearButtonClicked() {
         
         searchKeywords = []
-        udManager.resetList()
+        udManager.searchList = []
     }
     
 }
@@ -161,17 +161,18 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
 }
 
 extension MainViewController: UISearchBarDelegate {
-    //TODO: 추가 설정 로직 필요
+
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         
         guard let text = searchBar.text, !text.isEmpty else { return }
-        var list = searchKeywords
-        list.append(text)
-        searchKeywords = list
+
+        searchKeywords.append(text)
+        udManager.searchList = searchKeywords
         
         let vc = storyboard?.instantiateViewController(withIdentifier: SearchResultViewController.identifier) as! SearchResultViewController
         
-        vc.configureView(text: "캠핑카")
+        vc.configureNavigationBar(text: text)
+        
         navigationController?.pushViewController(vc, animated: true)
         
     }

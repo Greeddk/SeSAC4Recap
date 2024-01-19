@@ -82,6 +82,10 @@ extension SetProfileViewController {
 
 // TODO: 로직 고치기
 extension SetProfileViewController: UITextFieldDelegate {
+    
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+        
+    }
 
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
 

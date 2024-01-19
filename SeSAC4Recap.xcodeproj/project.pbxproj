@@ -35,6 +35,9 @@
 		42A5713F2B5A60860070AFB4 /* NaverAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A5713E2B5A60860070AFB4 /* NaverAPIManager.swift */; };
 		42A571432B5A612F0070AFB4 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 42A571422B5A612F0070AFB4 /* .gitignore */; };
 		42A571452B5A61460070AFB4 /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A571442B5A61460070AFB4 /* APIKey.swift */; };
+		42A571482B5A64E30070AFB4 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A571472B5A64E30070AFB4 /* Item.swift */; };
+		42A5714C2B5A67830070AFB4 /* SearchResultCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A5714A2B5A67830070AFB4 /* SearchResultCollectionViewCell.swift */; };
+		42A5714D2B5A67830070AFB4 /* SearchResultCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42A5714B2B5A67830070AFB4 /* SearchResultCollectionViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,6 +68,9 @@
 		42A5713E2B5A60860070AFB4 /* NaverAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverAPIManager.swift; sourceTree = "<group>"; };
 		42A571422B5A612F0070AFB4 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		42A571442B5A61460070AFB4 /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
+		42A571472B5A64E30070AFB4 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		42A5714A2B5A67830070AFB4 /* SearchResultCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultCollectionViewCell.swift; sourceTree = "<group>"; };
+		42A5714B2B5A67830070AFB4 /* SearchResultCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchResultCollectionViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,21 +107,21 @@
 		42A570F02B5906C30070AFB4 /* SeSAC4Recap */ = {
 			isa = PBXGroup;
 			children = (
+				42A571462B5A64BD0070AFB4 /* Model */,
+				42A571052B590B640070AFB4 /* Extension */,
 				42A571352B5A2FF30070AFB4 /* Resource */,
 				42A5712D2B59F4120070AFB4 /* Label */,
-				42A570F12B5906C30070AFB4 /* AppDelegate.swift */,
-				42A570F32B5906C30070AFB4 /* SceneDelegate.swift */,
-				42A570F72B5906C30070AFB4 /* Main.storyboard */,
+				42A5711F2B593F120070AFB4 /* Manager */,
 				42A570F52B5906C30070AFB4 /* OnboardingViewController.swift */,
 				42A5710C2B59154F0070AFB4 /* SetProfileViewController.swift */,
-				42A5713C2B5A5BAE0070AFB4 /* SearchResultViewController.swift */,
 				42A571222B5947000070AFB4 /* MainView */,
-				42A5711F2B593F120070AFB4 /* Manager */,
-				42A571052B590B640070AFB4 /* Extension */,
+				42A571492B5A67320070AFB4 /* SearchResultView */,
+				42A570F72B5906C30070AFB4 /* Main.storyboard */,
 				42A570FC2B5906C50070AFB4 /* LaunchScreen.storyboard */,
 				42A570FA2B5906C50070AFB4 /* Assets.xcassets */,
+				42A570F12B5906C30070AFB4 /* AppDelegate.swift */,
+				42A570F32B5906C30070AFB4 /* SceneDelegate.swift */,
 				42A570FF2B5906C50070AFB4 /* Info.plist */,
-				42A571442B5A61460070AFB4 /* APIKey.swift */,
 			);
 			path = SeSAC4Recap;
 			sourceTree = "<group>";
@@ -166,8 +172,27 @@
 			isa = PBXGroup;
 			children = (
 				42A571362B5A30030070AFB4 /* ReusableProtocol.swift */,
+				42A571442B5A61460070AFB4 /* APIKey.swift */,
 			);
 			path = Resource;
+			sourceTree = "<group>";
+		};
+		42A571462B5A64BD0070AFB4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				42A571472B5A64E30070AFB4 /* Item.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		42A571492B5A67320070AFB4 /* SearchResultView */ = {
+			isa = PBXGroup;
+			children = (
+				42A5713C2B5A5BAE0070AFB4 /* SearchResultViewController.swift */,
+				42A5714A2B5A67830070AFB4 /* SearchResultCollectionViewCell.swift */,
+				42A5714B2B5A67830070AFB4 /* SearchResultCollectionViewCell.xib */,
+			);
+			path = SearchResultView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -242,6 +267,7 @@
 				42A570FB2B5906C50070AFB4 /* Assets.xcassets in Resources */,
 				42A571262B59472D0070AFB4 /* MainImageTableViewCell.xib in Resources */,
 				42A5713B2B5A37F90070AFB4 /* MainKeywordTableViewCell.xib in Resources */,
+				42A5714D2B5A67830070AFB4 /* SearchResultCollectionViewCell.xib in Resources */,
 				42A571432B5A612F0070AFB4 /* .gitignore in Resources */,
 				42A570F92B5906C30070AFB4 /* Main.storyboard in Resources */,
 			);
@@ -254,9 +280,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42A571482B5A64E30070AFB4 /* Item.swift in Sources */,
 				42A571282B5947980070AFB4 /* UITableViewCell+Extension.swift in Sources */,
 				42A571452B5A61460070AFB4 /* APIKey.swift in Sources */,
 				42A5712F2B59F42C0070AFB4 /* StringEnum.swift in Sources */,
+				42A5714C2B5A67830070AFB4 /* SearchResultCollectionViewCell.swift in Sources */,
 				42A571372B5A30030070AFB4 /* ReusableProtocol.swift in Sources */,
 				42A5710F2B5915A50070AFB4 /* UIViewController+Extension.swift in Sources */,
 				42A570F62B5906C30070AFB4 /* OnboardingViewController.swift in Sources */,

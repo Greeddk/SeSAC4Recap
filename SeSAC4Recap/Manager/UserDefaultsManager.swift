@@ -35,9 +35,6 @@ class UserDefaultsManager {
             ud.set(newValue, forKey: UDKey.searchList.rawValue)
         }
     }
-    
-    func resetList() {
-        searchList.removeAll()
-    }
+
     
 }
