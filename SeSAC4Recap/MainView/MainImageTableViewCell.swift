@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MainTableViewWithImageCell: UITableViewCell {
+class MainImageTableViewCell: UITableViewCell {
     
     @IBOutlet var mainImageView: UIImageView!
     @IBOutlet var infoLabel: UILabel!
@@ -15,10 +15,23 @@ class MainTableViewWithImageCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        setUI()
+    }
+    
+}
+
+extension MainImageTableViewCell {
+    
+    private func setUI() {
+        
+        setBackgroundColor()
+        
         mainImageView.image = .empty
+        
         infoLabel.text = "최근 검색어가 없어요"
         infoLabel.font = .largeTitleBold
         infoLabel.textAlignment = .center
+        infoLabel.textColor = .textColor
         
     }
     

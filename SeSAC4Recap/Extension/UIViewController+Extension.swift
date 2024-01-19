@@ -9,10 +9,6 @@ import UIKit
 
 extension UIViewController {
     
-    static var identifier: String {
-        return String(describing: self)
-    }
-    
     func setBackgroundColor() {
         self.view.backgroundColor = .backgroundColor
     }
@@ -20,7 +16,7 @@ extension UIViewController {
     func setNavigation(text: String, backButton: Bool) {
         
         navigationItem.title = text
-//        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.textColor]
+        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.textColor]
         
         navigationItem.setHidesBackButton(true, animated: true)
         

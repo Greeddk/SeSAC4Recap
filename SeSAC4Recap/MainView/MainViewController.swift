@@ -12,7 +12,18 @@ class MainViewController: UIViewController {
     @IBOutlet var userSearchBar: UISearchBar!
     @IBOutlet var searchTableView: UITableView!
     
-    var searchKeywords: [String] = []
+    @IBOutlet var headerBackView: UIView!
+    @IBOutlet var headerLabel: UILabel!
+    @IBOutlet var allClearButton: UIButton!
+    
+    var udManager = UserDefaultsManager.shared
+    
+    var searchKeywords = UserDefaultsManager.shared.searchList {
+        didSet {
+            searchTableView.reloadData()
+            setUI()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,7 +32,13 @@ class MainViewController: UIViewController {
         configureTableView()
     }
     
-
+    // TODO: 리셋 로직 수정필요
+    @objc private func allClearButtonClicked() {
+        
+        searchKeywords = []
+        udManager.resetList()
+    }
+    
 }
 
 extension MainViewController {
@@ -33,18 +50,62 @@ extension MainViewController {
         let nickname = UserDefaultsManager.shared.nickname
         setNavigation(text: "떠나고싶은 \(nickname)님의 새싹쇼핑", backButton: false)
         
-        userSearchBar.placeholder = "브랜드, 상품, 프로필, 태그 등"
+        headerBackView.backgroundColor = .clear
         
+        setSearchBar()
+        
+        headerLabel.text = "최근 검색"
+        headerLabel.font = .mediumBold
+        
+        allClearButton.setTitle("모두 지우기", for: .normal)
+        allClearButton.titleLabel?.font = .medium
+        allClearButton.addTarget(self, action: #selector(allClearButtonClicked), for: .touchUpInside)
+        
+        userSearchBar.text = ""
+        
+        if searchKeywords.isEmpty {
+            
+            headerLabel.textColor = .backgroundColor
+            
+            allClearButton.setTitleColor(.backgroundColor, for: .normal)
+            
+            searchTableView.allowsSelection = false
+            
+        } else {
+            
+            headerLabel.textColor = .textColor
+            
+            allClearButton.setTitleColor(.point, for: .normal)
+        }
+        
+        
+        
+    }
+    
+    private func setSearchBar() {
+        
+        userSearchBar.placeholder = "브랜드, 상품, 프로필, 태그 등"
+        userSearchBar.barTintColor = .clear
+        userSearchBar.searchTextField.attributedPlaceholder = NSAttributedString(string: "브랜드, 상품, 프로필, 태그 등", attributes: [NSAttributedString.Key.foregroundColor : UIColor.lightGray])
+        userSearchBar.searchTextField.textColor = .textColor
+        userSearchBar.backgroundColor = .white
+
     }
     
     private func configureTableView() {
         
         searchTableView.delegate = self
         searchTableView.dataSource = self
+        searchTableView.backgroundColor = .backgroundColor
         
-        let xib = UINib(nibName: MainTableViewWithImageCell.identifier, bundle: nil)
+        let emptyViewXib = UINib(nibName: MainImageTableViewCell.identifier, bundle: nil)
         
-        searchTableView.register(xib, forCellReuseIdentifier: MainTableViewWithImageCell.identifier)
+        searchTableView.register(emptyViewXib, forCellReuseIdentifier: MainImageTableViewCell.identifier)
+        
+        let keywordViewXib = UINib(nibName: MainKeywordTableViewCell.identifier, bundle: nil)
+        
+        searchTableView.register(keywordViewXib, forCellReuseIdentifier: MainKeywordTableViewCell.identifier)
+        
         
     }
 }
@@ -57,18 +118,39 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: MainTableViewWithImageCell.identifier) as! MainTableViewWithImageCell
+        if searchKeywords.isEmpty {
+            
+            let cell = tableView.dequeueReusableCell(withIdentifier: MainImageTableViewCell.identifier) as! MainImageTableViewCell
+            
+            return cell
+            
+        } else {
+            
+            let cell = tableView.dequeueReusableCell(withIdentifier: MainKeywordTableViewCell.identifier, for: indexPath) as! MainKeywordTableViewCell
+            
+            var list: [String] = []
+            let totalCount = searchKeywords.count
+            
+            for index in 0...totalCount - 1 {
+                let item = searchKeywords[totalCount - 1 - index]
+                list.append(item)
+            }
+            
+            cell.configureCell(text: list[indexPath.row])
+            
+            return cell
+            
+        }
         
-        return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        if searchKeywords.count == 0 {
-            return UIScreen.main.bounds.height
+        if searchKeywords.isEmpty {
+            return UIScreen.main.bounds.height / 2
         }
         
-        return 80
+        return 50
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -76,5 +158,22 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
         tableView.reloadRows(at: [indexPath], with: .fade)
     }
     
+}
+
+extension MainViewController: UISearchBarDelegate {
+    //TODO: 추가 설정 로직 필요
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        
+        guard let text = searchBar.text, !text.isEmpty else { return }
+        var list = searchKeywords
+        list.append(text)
+        searchKeywords = list
+        
+        let vc = storyboard?.instantiateViewController(withIdentifier: SearchResultViewController.identifier) as! SearchResultViewController
+        
+        vc.configureView(text: "캠핑카")
+        navigationController?.pushViewController(vc, animated: true)
+        
+    }
     
 }

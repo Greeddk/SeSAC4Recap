@@ -24,9 +24,17 @@
 		42A5711A2B591D0C0070AFB4 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A571192B591D0C0070AFB4 /* UIImageView+Extension.swift */; };
 		42A5711E2B593C790070AFB4 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A5711D2B593C790070AFB4 /* MainViewController.swift */; };
 		42A571212B593F280070AFB4 /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A571202B593F280070AFB4 /* UserDefaultsManager.swift */; };
-		42A571252B59472D0070AFB4 /* MainTableViewWithImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A571232B59472D0070AFB4 /* MainTableViewWithImageCell.swift */; };
-		42A571262B59472D0070AFB4 /* MainTableViewWithImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42A571242B59472D0070AFB4 /* MainTableViewWithImageCell.xib */; };
+		42A571252B59472D0070AFB4 /* MainImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A571232B59472D0070AFB4 /* MainImageTableViewCell.swift */; };
+		42A571262B59472D0070AFB4 /* MainImageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42A571242B59472D0070AFB4 /* MainImageTableViewCell.xib */; };
 		42A571282B5947980070AFB4 /* UITableViewCell+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A571272B5947980070AFB4 /* UITableViewCell+Extension.swift */; };
+		42A5712F2B59F42C0070AFB4 /* StringEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A5712E2B59F42C0070AFB4 /* StringEnum.swift */; };
+		42A571372B5A30030070AFB4 /* ReusableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A571362B5A30030070AFB4 /* ReusableProtocol.swift */; };
+		42A5713A2B5A37F90070AFB4 /* MainKeywordTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A571382B5A37F90070AFB4 /* MainKeywordTableViewCell.swift */; };
+		42A5713B2B5A37F90070AFB4 /* MainKeywordTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 42A571392B5A37F90070AFB4 /* MainKeywordTableViewCell.xib */; };
+		42A5713D2B5A5BAE0070AFB4 /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A5713C2B5A5BAE0070AFB4 /* SearchResultViewController.swift */; };
+		42A5713F2B5A60860070AFB4 /* NaverAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A5713E2B5A60860070AFB4 /* NaverAPIManager.swift */; };
+		42A571432B5A612F0070AFB4 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 42A571422B5A612F0070AFB4 /* .gitignore */; };
+		42A571452B5A61460070AFB4 /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A571442B5A61460070AFB4 /* APIKey.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,9 +54,17 @@
 		42A571192B591D0C0070AFB4 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 		42A5711D2B593C790070AFB4 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		42A571202B593F280070AFB4 /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
-		42A571232B59472D0070AFB4 /* MainTableViewWithImageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewWithImageCell.swift; sourceTree = "<group>"; };
-		42A571242B59472D0070AFB4 /* MainTableViewWithImageCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainTableViewWithImageCell.xib; sourceTree = "<group>"; };
+		42A571232B59472D0070AFB4 /* MainImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainImageTableViewCell.swift; sourceTree = "<group>"; };
+		42A571242B59472D0070AFB4 /* MainImageTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainImageTableViewCell.xib; sourceTree = "<group>"; };
 		42A571272B5947980070AFB4 /* UITableViewCell+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Extension.swift"; sourceTree = "<group>"; };
+		42A5712E2B59F42C0070AFB4 /* StringEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringEnum.swift; sourceTree = "<group>"; };
+		42A571362B5A30030070AFB4 /* ReusableProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableProtocol.swift; sourceTree = "<group>"; };
+		42A571382B5A37F90070AFB4 /* MainKeywordTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainKeywordTableViewCell.swift; sourceTree = "<group>"; };
+		42A571392B5A37F90070AFB4 /* MainKeywordTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainKeywordTableViewCell.xib; sourceTree = "<group>"; };
+		42A5713C2B5A5BAE0070AFB4 /* SearchResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
+		42A5713E2B5A60860070AFB4 /* NaverAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverAPIManager.swift; sourceTree = "<group>"; };
+		42A571422B5A612F0070AFB4 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		42A571442B5A61460070AFB4 /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +84,7 @@
 		42A570E52B5906C30070AFB4 = {
 			isa = PBXGroup;
 			children = (
+				42A571422B5A612F0070AFB4 /* .gitignore */,
 				42A570F02B5906C30070AFB4 /* SeSAC4Recap */,
 				42A570EF2B5906C30070AFB4 /* Products */,
 			);
@@ -84,17 +101,21 @@
 		42A570F02B5906C30070AFB4 /* SeSAC4Recap */ = {
 			isa = PBXGroup;
 			children = (
+				42A571352B5A2FF30070AFB4 /* Resource */,
+				42A5712D2B59F4120070AFB4 /* Label */,
 				42A570F12B5906C30070AFB4 /* AppDelegate.swift */,
 				42A570F32B5906C30070AFB4 /* SceneDelegate.swift */,
 				42A570F72B5906C30070AFB4 /* Main.storyboard */,
 				42A570F52B5906C30070AFB4 /* OnboardingViewController.swift */,
 				42A5710C2B59154F0070AFB4 /* SetProfileViewController.swift */,
+				42A5713C2B5A5BAE0070AFB4 /* SearchResultViewController.swift */,
 				42A571222B5947000070AFB4 /* MainView */,
 				42A5711F2B593F120070AFB4 /* Manager */,
 				42A571052B590B640070AFB4 /* Extension */,
 				42A570FC2B5906C50070AFB4 /* LaunchScreen.storyboard */,
 				42A570FA2B5906C50070AFB4 /* Assets.xcassets */,
 				42A570FF2B5906C50070AFB4 /* Info.plist */,
+				42A571442B5A61460070AFB4 /* APIKey.swift */,
 			);
 			path = SeSAC4Recap;
 			sourceTree = "<group>";
@@ -116,6 +137,7 @@
 			isa = PBXGroup;
 			children = (
 				42A571202B593F280070AFB4 /* UserDefaultsManager.swift */,
+				42A5713E2B5A60860070AFB4 /* NaverAPIManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -124,10 +146,28 @@
 			isa = PBXGroup;
 			children = (
 				42A5711D2B593C790070AFB4 /* MainViewController.swift */,
-				42A571232B59472D0070AFB4 /* MainTableViewWithImageCell.swift */,
-				42A571242B59472D0070AFB4 /* MainTableViewWithImageCell.xib */,
+				42A571232B59472D0070AFB4 /* MainImageTableViewCell.swift */,
+				42A571242B59472D0070AFB4 /* MainImageTableViewCell.xib */,
+				42A571382B5A37F90070AFB4 /* MainKeywordTableViewCell.swift */,
+				42A571392B5A37F90070AFB4 /* MainKeywordTableViewCell.xib */,
 			);
 			path = MainView;
+			sourceTree = "<group>";
+		};
+		42A5712D2B59F4120070AFB4 /* Label */ = {
+			isa = PBXGroup;
+			children = (
+				42A5712E2B59F42C0070AFB4 /* StringEnum.swift */,
+			);
+			path = Label;
+			sourceTree = "<group>";
+		};
+		42A571352B5A2FF30070AFB4 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				42A571362B5A30030070AFB4 /* ReusableProtocol.swift */,
+			);
+			path = Resource;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -200,7 +240,9 @@
 			files = (
 				42A570FE2B5906C50070AFB4 /* LaunchScreen.storyboard in Resources */,
 				42A570FB2B5906C50070AFB4 /* Assets.xcassets in Resources */,
-				42A571262B59472D0070AFB4 /* MainTableViewWithImageCell.xib in Resources */,
+				42A571262B59472D0070AFB4 /* MainImageTableViewCell.xib in Resources */,
+				42A5713B2B5A37F90070AFB4 /* MainKeywordTableViewCell.xib in Resources */,
+				42A571432B5A612F0070AFB4 /* .gitignore in Resources */,
 				42A570F92B5906C30070AFB4 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -213,15 +255,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				42A571282B5947980070AFB4 /* UITableViewCell+Extension.swift in Sources */,
+				42A571452B5A61460070AFB4 /* APIKey.swift in Sources */,
+				42A5712F2B59F42C0070AFB4 /* StringEnum.swift in Sources */,
+				42A571372B5A30030070AFB4 /* ReusableProtocol.swift in Sources */,
 				42A5710F2B5915A50070AFB4 /* UIViewController+Extension.swift in Sources */,
 				42A570F62B5906C30070AFB4 /* OnboardingViewController.swift in Sources */,
 				42A571092B590BE50070AFB4 /* UIFont+Extension.swift in Sources */,
+				42A5713A2B5A37F90070AFB4 /* MainKeywordTableViewCell.swift in Sources */,
 				42A5711A2B591D0C0070AFB4 /* UIImageView+Extension.swift in Sources */,
 				42A570F22B5906C30070AFB4 /* AppDelegate.swift in Sources */,
 				42A5710D2B59154F0070AFB4 /* SetProfileViewController.swift in Sources */,
 				42A570F42B5906C30070AFB4 /* SceneDelegate.swift in Sources */,
 				42A571212B593F280070AFB4 /* UserDefaultsManager.swift in Sources */,
-				42A571252B59472D0070AFB4 /* MainTableViewWithImageCell.swift in Sources */,
+				42A5713F2B5A60860070AFB4 /* NaverAPIManager.swift in Sources */,
+				42A571252B59472D0070AFB4 /* MainImageTableViewCell.swift in Sources */,
+				42A5713D2B5A5BAE0070AFB4 /* SearchResultViewController.swift in Sources */,
 				42A571072B590B740070AFB4 /* UIColor+Extension.swift in Sources */,
 				42A5710B2B59102C0070AFB4 /* UIButton+Extension.swift in Sources */,
 				42A5711E2B593C790070AFB4 /* MainViewController.swift in Sources */,
@@ -384,7 +432,6 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_UIUserInterfaceStyle = Dark;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -417,7 +464,6 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				INFOPLIST_KEY_UIUserInterfaceStyle = Dark;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

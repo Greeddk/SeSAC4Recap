@@ -27,7 +27,7 @@ class SetProfileViewController: UIViewController {
         setNavigation(text: "프로필 설정", backButton: true)
         setUI()
     }
-    
+     
 }
 
 extension SetProfileViewController {
@@ -80,7 +80,7 @@ extension SetProfileViewController {
     
 }
 
-// TODO : 로직 고치지
+// TODO: 로직 고치기
 extension SetProfileViewController: UITextFieldDelegate {
 
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {

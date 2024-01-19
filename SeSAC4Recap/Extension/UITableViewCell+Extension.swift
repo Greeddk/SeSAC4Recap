@@ -7,9 +7,13 @@
 
 import UIKit
 
-extension UITableViewCell {
+protocol TableViewCellProtocol {
+    func setBackgroundColor()
+}
+
+extension UITableViewCell: TableViewCellProtocol {
     
-    static var identifier: String {
-        String(describing: self)
+    func setBackgroundColor() {
+        self.backgroundColor = .clear
     }
 }
