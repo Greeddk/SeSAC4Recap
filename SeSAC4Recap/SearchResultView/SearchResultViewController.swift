@@ -38,6 +38,7 @@ class SearchResultViewController: UIViewController {
 //        })
         searchManager.callRequest(text: list.last!) { value in
             self.shoppingList = value
+            self.numberOfResultLabel.text = "\(self.shoppingList.total) 개의 검색 결과"
         }
         
             setUI()
@@ -53,9 +54,13 @@ extension SearchResultViewController {
         
         setBackgroundColor()
         
-        numberOfResultLabel.text = "\(shoppingList.total) 개의 검색 결과"
         numberOfResultLabel.textColor = .point
         numberOfResultLabel.font = .medium
+        
+        configureFilterButton(button: accurateFilterButton, text: "정확도")
+        configureFilterButton(button: dateFilterButton, text: "날짜순")
+        configureFilterButton(button: highPriceFilterButton, text: "가격높은순")
+        configureFilterButton(button: lowPriceFilterButton, text: "가격낮은순")
     }
     
     func configureNavigationBar(text: String) {
@@ -90,8 +95,11 @@ extension SearchResultViewController {
     func configureFilterButton(button: UIButton, text: String) {
         
         button.setTitle(text, for: .normal)
-        
+        button.setTitleColor(.textColor, for: .normal)
         button.layer.cornerRadius = 8
+        button.backgroundColor = .backgroundColor
+        button.layer.borderColor = UIColor.textColor.cgColor
+        button.layer.borderWidth = 1
     }
 }
 
@@ -109,7 +117,7 @@ extension SearchResultViewController: UICollectionViewDelegate, UICollectionView
         
         return cell
     }
-    
+    // TODO: 웹킷뷰와 연결 및 네비게이션 타이틀 상품이름으로
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
     }

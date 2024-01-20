@@ -14,6 +14,7 @@ struct NaverAPIManager {
     
     func callRequest(text: String, completionhandler: @escaping (ShoppingList) -> Void) {
         
+        // TODO: 상품 이름 <b> 같은거 제거
         let query = text.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
         
         let display = 30

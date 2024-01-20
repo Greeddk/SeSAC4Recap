@@ -262,14 +262,14 @@
                                 <state key="normal" title="Button"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p5e-WA-xBw">
-                                <rect key="frame" x="62" y="91" width="50" height="30"/>
+                                <rect key="frame" x="66" y="91" width="50" height="30"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="Button"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AOY-pb-BxF">
-                                <rect key="frame" x="116" y="91" width="50" height="30"/>
+                                <rect key="frame" x="124" y="91" width="70" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="50" id="NEY-a7-7eV"/>
+                                    <constraint firstAttribute="width" constant="70" id="NEY-a7-7eV"/>
                                 </constraints>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="Button"/>
@@ -319,9 +319,9 @@
                                 </cells>
                             </collectionView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ex0-Oz-iRz">
-                                <rect key="frame" x="170" y="91" width="50" height="30"/>
+                                <rect key="frame" x="202" y="91" width="70" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="50" id="dA0-aZ-wm0"/>
+                                    <constraint firstAttribute="width" constant="70" id="dA0-aZ-wm0"/>
                                 </constraints>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="Button"/>
@@ -335,7 +335,7 @@
                             <constraint firstItem="nnK-3L-A0b" firstAttribute="leading" secondItem="H7I-IU-UUS" secondAttribute="leading" id="Eli-8h-tQQ"/>
                             <constraint firstItem="Ya1-oX-J2v" firstAttribute="top" secondItem="H7I-IU-UUS" secondAttribute="top" constant="8" id="GxW-id-WRX"/>
                             <constraint firstItem="Ya1-oX-J2v" firstAttribute="leading" secondItem="H7I-IU-UUS" secondAttribute="leading" constant="8" id="KUn-Dm-Lv5"/>
-                            <constraint firstItem="p5e-WA-xBw" firstAttribute="leading" secondItem="xcA-uO-OBE" secondAttribute="trailing" constant="4" id="MnC-Nq-EAI"/>
+                            <constraint firstItem="p5e-WA-xBw" firstAttribute="leading" secondItem="xcA-uO-OBE" secondAttribute="trailing" constant="8" id="MnC-Nq-EAI"/>
                             <constraint firstItem="xcA-uO-OBE" firstAttribute="leading" secondItem="H7I-IU-UUS" secondAttribute="leading" constant="8" id="NFq-HK-gTY"/>
                             <constraint firstItem="H7I-IU-UUS" firstAttribute="bottom" secondItem="nnK-3L-A0b" secondAttribute="bottom" id="Rrf-ni-F96"/>
                             <constraint firstItem="nnK-3L-A0b" firstAttribute="top" secondItem="p5e-WA-xBw" secondAttribute="bottom" constant="8" id="U0i-e5-89J"/>
@@ -343,8 +343,8 @@
                             <constraint firstItem="p5e-WA-xBw" firstAttribute="width" secondItem="xcA-uO-OBE" secondAttribute="width" id="eEb-PA-BZp"/>
                             <constraint firstItem="p5e-WA-xBw" firstAttribute="top" secondItem="Ya1-oX-J2v" secondAttribute="bottom" constant="4" id="fh6-50-H4I"/>
                             <constraint firstItem="H7I-IU-UUS" firstAttribute="trailing" secondItem="nnK-3L-A0b" secondAttribute="trailing" id="vcW-1p-qVu"/>
-                            <constraint firstItem="Ex0-Oz-iRz" firstAttribute="leading" secondItem="AOY-pb-BxF" secondAttribute="trailing" constant="4" id="vj4-8S-kxz"/>
-                            <constraint firstItem="AOY-pb-BxF" firstAttribute="leading" secondItem="p5e-WA-xBw" secondAttribute="trailing" constant="4" id="xDw-Eb-znL"/>
+                            <constraint firstItem="Ex0-Oz-iRz" firstAttribute="leading" secondItem="AOY-pb-BxF" secondAttribute="trailing" constant="8" id="vj4-8S-kxz"/>
+                            <constraint firstItem="AOY-pb-BxF" firstAttribute="leading" secondItem="p5e-WA-xBw" secondAttribute="trailing" constant="8" id="xDw-Eb-znL"/>
                             <constraint firstItem="xcA-uO-OBE" firstAttribute="top" secondItem="Ya1-oX-J2v" secondAttribute="bottom" constant="4" id="xPk-OT-dbV"/>
                         </constraints>
                     </view>
@@ -361,16 +361,35 @@
             </objects>
             <point key="canvasLocation" x="4991.6030534351139" y="-35.211267605633807"/>
         </scene>
-        <!--View Controller-->
+        <!--Product Detail View Controller-->
         <scene sceneID="ZzS-cj-O9p">
             <objects>
-                <viewController id="Kce-ph-aVu" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProductDetailViewController" id="Kce-ph-aVu" customClass="ProductDetailViewController" customModule="SeSAC4Recap" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2RB-HO-4ye">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lP3-vI-zfU">
+                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="tLD-WF-PZG"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="tLD-WF-PZG" firstAttribute="bottom" secondItem="lP3-vI-zfU" secondAttribute="bottom" id="NgJ-59-dnl"/>
+                            <constraint firstItem="lP3-vI-zfU" firstAttribute="leading" secondItem="tLD-WF-PZG" secondAttribute="leading" id="Wgu-6G-DVr"/>
+                            <constraint firstItem="lP3-vI-zfU" firstAttribute="top" secondItem="tLD-WF-PZG" secondAttribute="top" id="XFP-ih-Yoa"/>
+                            <constraint firstItem="tLD-WF-PZG" firstAttribute="trailing" secondItem="lP3-vI-zfU" secondAttribute="trailing" id="fbg-2B-dBv"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="productDetailWebView" destination="lP3-vI-zfU" id="Nqq-sD-Jnz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UJy-BX-OCS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

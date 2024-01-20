@@ -31,8 +31,7 @@ class MainViewController: UIViewController {
         setUI()
         configureTableView()
     }
-    
-    // TODO: 리셋 로직 수정필요
+
     @objc private func allClearButtonClicked() {
         
         searchKeywords = []
@@ -77,8 +76,6 @@ extension MainViewController {
             
             allClearButton.setTitleColor(.point, for: .normal)
         }
-        
-        
         
     }
     
@@ -154,6 +151,9 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        // TODO: delete 버튼 눌렀을 땐 그 항목 삭제
+        // TODO: 해당 셀 클릭 시 그걸로 검색되게
         
         tableView.reloadRows(at: [indexPath], with: .fade)
     }

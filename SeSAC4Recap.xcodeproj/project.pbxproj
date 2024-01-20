@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		42346DBA2B5B88890001B988 /* ProductDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42346DB92B5B88890001B988 /* ProductDetailViewController.swift */; };
 		42A570F22B5906C30070AFB4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A570F12B5906C30070AFB4 /* AppDelegate.swift */; };
 		42A570F42B5906C30070AFB4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A570F32B5906C30070AFB4 /* SceneDelegate.swift */; };
 		42A570F62B5906C30070AFB4 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A570F52B5906C30070AFB4 /* OnboardingViewController.swift */; };
@@ -41,6 +42,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		42346DB92B5B88890001B988 /* ProductDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailViewController.swift; sourceTree = "<group>"; };
 		42A570EE2B5906C30070AFB4 /* SeSAC4Recap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SeSAC4Recap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		42A570F12B5906C30070AFB4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		42A570F32B5906C30070AFB4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 				42A5710C2B59154F0070AFB4 /* SetProfileViewController.swift */,
 				42A571222B5947000070AFB4 /* MainView */,
 				42A571492B5A67320070AFB4 /* SearchResultView */,
+				42346DB92B5B88890001B988 /* ProductDetailViewController.swift */,
 				42A570F72B5906C30070AFB4 /* Main.storyboard */,
 				42A570FC2B5906C50070AFB4 /* LaunchScreen.storyboard */,
 				42A570FA2B5906C50070AFB4 /* Assets.xcassets */,
@@ -287,6 +290,7 @@
 				42A5714C2B5A67830070AFB4 /* SearchResultCollectionViewCell.swift in Sources */,
 				42A571372B5A30030070AFB4 /* ReusableProtocol.swift in Sources */,
 				42A5710F2B5915A50070AFB4 /* UIViewController+Extension.swift in Sources */,
+				42346DBA2B5B88890001B988 /* ProductDetailViewController.swift in Sources */,
 				42A570F62B5906C30070AFB4 /* OnboardingViewController.swift in Sources */,
 				42A571092B590BE50070AFB4 /* UIFont+Extension.swift in Sources */,
 				42A5713A2B5A37F90070AFB4 /* MainKeywordTableViewCell.swift in Sources */,
