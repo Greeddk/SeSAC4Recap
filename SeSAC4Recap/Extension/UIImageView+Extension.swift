@@ -9,7 +9,9 @@ import UIKit
 
 extension UIImageView {
     
-    func setRoundImage() {
+    func setRoundProfileImage() {
         self.layer.cornerRadius = self.frame.width / 2
+        self.layer.borderWidth = 4
+        self.layer.borderColor = UIColor.point.cgColor
     }
 }

@@ -8,7 +8,7 @@
 import UIKit
 
 class SearchResultViewController: UIViewController {
-
+    
     
     @IBOutlet var numberOfResultLabel: UILabel!
     
@@ -31,21 +31,21 @@ class SearchResultViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let list = udManager.searchList
+        let text = udManager.searchKeyword
         //이 코드는 왜 안될까요..? completionhandler가 단순히 파라미터가 아니라 escaping 과 관련이 있어서 그런걸까요?
-//        searchManager.callRequest(text: list.last!, completionhandler: { value in
-//            self.shoppingList = value
-//        })
-        searchManager.callRequest(text: list.last!) { value in
+        //        searchManager.callRequest(text: list.last!, completionhandler: { value in
+        //            self.shoppingList = value
+        //        })
+        searchManager.callRequest(text: text) { value in
             self.shoppingList = value
             self.numberOfResultLabel.text = "\(self.shoppingList.total) 개의 검색 결과"
         }
         
-            setUI()
-            configureCollectionView()
+        setUI()
+        configureCollectionView()
         
     }
-
+    
 }
 
 extension SearchResultViewController {
@@ -119,6 +119,12 @@ extension SearchResultViewController: UICollectionViewDelegate, UICollectionView
     }
     // TODO: 웹킷뷰와 연결 및 네비게이션 타이틀 상품이름으로
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        let vc = storyboard?.instantiateViewController(withIdentifier: ProductDetailViewController.identifier) as! ProductDetailViewController
+        
+        vc.item = shoppingList.items[indexPath.item]
+        
+        navigationController?.pushViewController(vc, animated: true)
         
     }
     

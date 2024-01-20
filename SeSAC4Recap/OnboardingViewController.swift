@@ -38,7 +38,7 @@ extension OnboardingViewController {
     @objc private func startButtonClicked() {
         
         let vc = storyboard?.instantiateViewController(withIdentifier: SetProfileViewController.identifier) as! SetProfileViewController
-        
+
         navigationController?.pushViewController(vc, animated: true)
     }
 }

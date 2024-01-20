@@ -13,9 +13,16 @@ enum labelText: String {
 
 enum storyboardName: String {
     case main = "Main"
-    case onboarding = "Onboarding"
 }
 
 enum tabBarName: String {
     case mainTabBar = "MainTabBarController"
+}
+
+enum settingOptionsName: String, CaseIterable {
+    case announcement = "공지사항"
+    case faq = "자주 묻는 질문"
+    case question = "1:1 문의"
+    case notification = "알림 설정"
+    case restart = "처음부터 시작하기"
 }

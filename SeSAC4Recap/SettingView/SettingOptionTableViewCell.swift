@@ -9,15 +9,24 @@ import UIKit
 
 class SettingOptionTableViewCell: UITableViewCell {
 
+    @IBOutlet var optionLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
-    }
+        
+        backgroundColor = .backViewColor
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
+}
+
+extension SettingOptionTableViewCell {
+    
+    func configureCell(text: String) {
+        
+        optionLabel.text = text
+        optionLabel.font = .small
+        optionLabel.textColor = .systemGray4
+        
+    }
 }

@@ -13,10 +13,26 @@ class MainKeywordTableViewCell: UITableViewCell {
     @IBOutlet var searchedKeyword: UILabel!
     @IBOutlet var deleteButton: UIButton!
     
+    let udManager = UserDefaultsManager.shared
+    
+    var index: Int = 0
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
         setUI()
+    }
+    
+    @IBAction func deleteButtonClicked(_ sender: UIButton) {
+        
+        var list: [String] = udManager.searchList
+        //TODO: Out of index 처리 필요
+        list.reverse()
+        list.remove(at: index)
+        list.reverse()
+        
+        udManager.searchList = list
+        
     }
     
 }

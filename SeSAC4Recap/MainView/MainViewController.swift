@@ -30,24 +30,35 @@ class MainViewController: UIViewController {
         
         setUI()
         configureTableView()
+        configureTabBar()
+    
     }
 
     @objc private func allClearButtonClicked() {
         
         searchKeywords = []
         udManager.searchList = []
+        
     }
     
 }
 
 extension MainViewController {
     
+    private func configureTabBar() {
+        
+        tabBarController?.tabBar.tintColor = .point
+        tabBarController?.tabBar.unselectedItemTintColor = .systemGray
+        
+    }
+    
     private func setUI() {
         
         setBackgroundColor()
         
         let nickname = UserDefaultsManager.shared.nickname
-        setNavigation(text: "떠나고싶은 \(nickname)님의 새싹쇼핑", backButton: false)
+        setNavigation(text: "", backButton: false)
+        tabBarController?.title = "떠나고싶은 \(nickname)님의 새싹쇼핑"
         
         headerBackView.backgroundColor = .clear
         
@@ -81,8 +92,8 @@ extension MainViewController {
     
     private func setSearchBar() {
         
-        userSearchBar.placeholder = "브랜드, 상품, 프로필, 태그 등"
         userSearchBar.barTintColor = .clear
+        userSearchBar.searchTextField.leftView?.tintColor = .lightGray
         userSearchBar.searchTextField.attributedPlaceholder = NSAttributedString(string: "브랜드, 상품, 프로필, 태그 등", attributes: [NSAttributedString.Key.foregroundColor : UIColor.lightGray])
         userSearchBar.searchTextField.textColor = .textColor
         userSearchBar.backgroundColor = .white
@@ -125,15 +136,11 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
             
             let cell = tableView.dequeueReusableCell(withIdentifier: MainKeywordTableViewCell.identifier, for: indexPath) as! MainKeywordTableViewCell
             
-            var list: [String] = []
-            let totalCount = searchKeywords.count
-            
-            for index in 0...totalCount - 1 {
-                let item = searchKeywords[totalCount - 1 - index]
-                list.append(item)
-            }
+            var list = searchKeywords
+            list.reverse()
             
             cell.configureCell(text: list[indexPath.row])
+            cell.index = indexPath.row
             
             return cell
             
@@ -153,9 +160,21 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         // TODO: delete 버튼 눌렀을 땐 그 항목 삭제
-        // TODO: 해당 셀 클릭 시 그걸로 검색되게
         
         tableView.reloadRows(at: [indexPath], with: .fade)
+        
+        let vc = storyboard?.instantiateViewController(withIdentifier: SearchResultViewController.identifier) as! SearchResultViewController
+        
+        var list = searchKeywords
+        list.reverse()
+        
+        let text = list[indexPath.row]
+        
+        udManager.searchKeyword = text
+        
+        vc.configureNavigationBar(text: text)
+        
+        navigationController?.pushViewController(vc, animated: true)
     }
     
 }
@@ -168,6 +187,7 @@ extension MainViewController: UISearchBarDelegate {
 
         searchKeywords.append(text)
         udManager.searchList = searchKeywords
+        udManager.searchKeyword = text
         
         let vc = storyboard?.instantiateViewController(withIdentifier: SearchResultViewController.identifier) as! SearchResultViewController
         

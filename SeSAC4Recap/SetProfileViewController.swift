@@ -10,9 +10,11 @@ import TextFieldEffects
 
 class SetProfileViewController: UIViewController {
     
-    let profileList: [UIImage] = [.profile1, .profile2, .profile3, .profile4, .profile5, .profile6, .profile7, .profile8, .profile9, .profile10, .profile11, .profile12, .profile13, .profile14]
+    let profileList: [String] = ["profile1", "profile2", "profile3", "profile4", "profile5", "profile6", "profile7", "profile8", "profile9", "profile10", "profile11", "profile12", "profile13", "profile14"]
     
     var isValidated: Bool = false
+    
+    let udManager = UserDefaultsManager.shared
     
     @IBOutlet var roundedProfileImage: UIImageView!
     @IBOutlet var camLogoImage: UIImageView!
@@ -41,10 +43,11 @@ extension SetProfileViewController {
         
         setBackgroundColor()
         
-        roundedProfileImage.image = profileList[Int.random(in: 0...13)]
-        roundedProfileImage.layer.borderWidth = 4
-        roundedProfileImage.layer.borderColor = UIColor.point.cgColor
-        roundedProfileImage.setRoundImage()
+        let image = profileList[Int.random(in: 0...13)]
+        udManager.userImage = image
+        
+        roundedProfileImage.image = UIImage(named: image)
+        roundedProfileImage.setRoundProfileImage()
         
         camLogoImage.image = .camera
         
@@ -68,11 +71,17 @@ extension SetProfileViewController {
     @objc private func submitButtonClicked() {
         
         if isValidated {
-            let vc = storyboard?.instantiateViewController(withIdentifier: MainViewController.identifier) as! MainViewController
             
-            UserDefaultsManager.shared.nickname = nicknameTextField.text!
+            nickInfoLabel.text = "사용할 수 있는 닉네임입니다"
+            
+            let sb = UIStoryboard(name: storyboardName.main.rawValue, bundle: nil)
+            let vc = sb.instantiateViewController(withIdentifier: tabBarName.mainTabBar.rawValue) as! UITabBarController
+            
+            udManager.nickname = nicknameTextField.text!
+            udManager.userState = true
             
             navigationController?.pushViewController(vc, animated: true)
+            
         } else {
             nickInfoLabel.text = "닉네임을 올바르게 입력해주세요"
         }
