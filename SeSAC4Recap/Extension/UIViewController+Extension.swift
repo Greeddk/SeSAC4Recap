@@ -30,7 +30,7 @@ extension UIViewController {
         
     }
     
-    func priceFormatter(text: String) -> String {
+    func numberFormatter(text: String) -> String {
         
         let number = Int(text)
         

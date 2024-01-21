@@ -14,7 +14,7 @@ class ProductDetailViewController: UIViewController {
     
     var item: Item = Item(title: "", link: "", image: "", lprice: "", productId: "", mallName: "")
     
-    var isFavorite: Bool = false {
+    lazy var isFavorite: Bool = UserDefaultsManager.shared.favoriteList.contains(item.productId) {
         didSet {
             setFavoriteButton()
         }

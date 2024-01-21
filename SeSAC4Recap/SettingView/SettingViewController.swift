@@ -18,11 +18,7 @@ class SettingViewController: UIViewController {
             settingTableView.reloadData()
         }
     }
-    var nickname = UserDefaultsManager.shared.nickname {
-        didSet {
-            settingTableView.reloadData()
-        }
-    }
+    var nickname = UserDefaultsManager.shared.nickname
     let list = settingOptionsName.allCases
     
     override func viewDidLoad() {
@@ -34,9 +30,8 @@ class SettingViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        //TODO: 실시간으로 좋아요 개수 반영되는 거
         profileImage = udManager.userImage
-        setUI()
         nickname = udManager.nickname
         
     }

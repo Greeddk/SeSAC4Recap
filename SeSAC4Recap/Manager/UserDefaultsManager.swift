@@ -18,6 +18,7 @@ class UserDefaultsManager {
         case searchList
         case searchKeyword
         case userState
+        case favoriteList
     }
     
     let ud = UserDefaults.standard
@@ -66,14 +67,36 @@ class UserDefaultsManager {
             ud.set(newValue, forKey: UDKey.userState.rawValue)
         }
     }
+    
+    var favoriteList: [String] {
+        get {
+            ud.array(forKey: UDKey.favoriteList.rawValue) as? [String] ?? []
+        }
+        set {
+            ud.set(newValue, forKey: UDKey.favoriteList.rawValue)
+        }
+    }
 
     
 }
 
 extension UserDefaults {
+    
     static func resetUserDefaults() {
         if let bundleID = Bundle.main.bundleIdentifier {
             UserDefaults.standard.removePersistentDomain(forName: bundleID)
         }
     }
+    
+    func removeElement(_ element: String, forKey key: String) {
+        
+        if var array = array(forKey: key) as? [String] {
+            if let index = array.firstIndex(of: element) {
+                array.remove(at: index)
+                set(array, forKey: key)
+            }
+        }
+        
+    }
+    
 }

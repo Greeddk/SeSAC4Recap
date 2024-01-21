@@ -37,9 +37,9 @@ class MainViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        let nickname = UserDefaultsManager.shared.nickname
+        setNavigation(text: "떠나고싶은 \(nickname)님의 새싹쇼핑", backButton: false)
         
-        
-//        tabBarController?.title = "떠나고싶은 \(nickname)님의 새싹쇼핑"
     }
 
     @objc private func allClearButtonClicked() {
@@ -63,9 +63,6 @@ extension MainViewController {
     private func setUI() {
         
         setBackgroundColor()
-        
-        let nickname = UserDefaultsManager.shared.nickname
-        setNavigation(text: "떠나고싶은 \(nickname)님의 새싹쇼핑", backButton: false)
         
         headerBackView.backgroundColor = .clear
         
@@ -180,6 +177,8 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
         udManager.searchKeyword = text
         
         vc.configureNavigationBar(text: text)
+        
+        navigationController?.pushViewController(vc, animated: true)
         
     }
     

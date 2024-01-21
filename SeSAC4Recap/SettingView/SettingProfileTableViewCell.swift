@@ -14,7 +14,7 @@ class SettingProfileTableViewCell: UITableViewCell {
     @IBOutlet var userFavoriteInfoLabel: UILabel!
     
     let udManager = UserDefaultsManager.shared
-    let favoriteCount = 0
+    let favoriteCount = UserDefaultsManager.shared.favoriteList.count
     
     override func awakeFromNib() {
         super.awakeFromNib()

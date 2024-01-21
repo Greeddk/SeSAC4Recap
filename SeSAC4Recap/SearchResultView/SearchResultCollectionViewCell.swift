@@ -12,17 +12,45 @@ class SearchResultCollectionViewCell: UICollectionViewCell {
     
     
     @IBOutlet var itemImageView: UIImageView!
-    @IBOutlet var favoriteButton: UIImageView!
+    @IBOutlet var favoriteButton: UIButton!
     @IBOutlet var shoppingmallLabel: UILabel!
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet var priceLabel: UILabel!
+    
+    let udManager = UserDefaultsManager.shared
+    
+    var productID = ""
+    var isClicked: Bool = false
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
         setUI()
+        print(udManager.favoriteList)
     }
 
+    @IBAction func favoriteButtonClicked(_ sender: UIButton) {
+        
+        isClicked.toggle()
+        
+        if isClicked {
+            favoriteButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+            
+            var list = udManager.favoriteList
+            list.append(productID)
+            udManager.favoriteList = list
+            
+        } else {
+            
+//            if udManager.favoriteList.contains(productID) {
+//                UserDefaults.standard.removeElement(productID, forKey: UserDefaultsManager.UDKey.favoriteList.rawValue)
+//                print(udManager.favoriteList)
+//            }
+            
+            favoriteButton.setImage(UIImage(systemName: "heart"), for: .normal)
+        }
+    }
+    
 }
 
 extension SearchResultCollectionViewCell {
@@ -44,7 +72,9 @@ extension SearchResultCollectionViewCell {
         priceLabel.font = .mediumTitle
         priceLabel.textColor = .systemGray6
         
-        favoriteButton.image = UIImage(systemName: "heart")
+        favoriteButton.setTitle("", for: .normal)
+        favoriteButton.setImage(UIImage(systemName: "heart"), for: .normal)
+        
         favoriteButton.tintColor = .black
         favoriteButton.backgroundColor = .textColor
         favoriteButton.layer.cornerRadius = favoriteButton.frame.width / 2
@@ -57,9 +87,25 @@ extension SearchResultCollectionViewCell {
         
         shoppingmallLabel.text = item.mallName
         
-        nameLabel.text = item.title
+        var itemName = item.title.replacingOccurrences(of: "<b>", with: "")
+        itemName = itemName.replacingOccurrences(of: "</b>", with: "")
+        nameLabel.text = itemName
         
-        priceLabel.text = self.inputViewController?.priceFormatter(text: item.lprice) 
+        priceLabel.text = numberFormatter(text: item.lprice)
+        
+        productID = item.productId
+        
+    }
+    
+    private func numberFormatter(text: String) -> String {
+        
+        let number = Int(text)
+        
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .decimal
+        let result = numberFormatter.string(for: number)!
+        
+        return String(describing: result)
         
     }
     
