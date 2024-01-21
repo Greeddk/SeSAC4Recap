@@ -30,6 +30,17 @@ extension UIViewController {
         
     }
     
+    func priceFormatter(text: String) -> String {
+        
+        let number = Int(text)
+        
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .decimal
+        let result = numberFormatter.string(for: number)!
+        
+        return String(describing: result)
+    }
+    
     @objc private func backButtonClicked() {
         
         navigationController?.popViewController(animated: true)

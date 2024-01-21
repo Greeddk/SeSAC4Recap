@@ -35,13 +35,18 @@ extension SettingProfileTableViewCell {
         
         nicknameLabel.font = .largeTitleBold
         nicknameLabel.textColor = .textColor
-        nicknameLabel.text = "떠나고싶은 \(udManager.nickname)"
         
         userFavoriteInfoLabel.font = .largeBold
         userFavoriteInfoLabel.textColor = .textColor
         let text = "\(favoriteCount)개의 상품을 좋아하고 있어요!"
         userFavoriteInfoLabel.text = text
         changeTextColor(text: text)
+        
+    }
+    
+    func setNickname(nickname: String) {
+        
+        nicknameLabel.text = "떠나고싶은 \(nickname)"
         
     }
     

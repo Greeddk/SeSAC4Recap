@@ -59,7 +59,7 @@ extension SearchResultCollectionViewCell {
         
         nameLabel.text = item.title
         
-        priceLabel.text = item.lprice
+        priceLabel.text = self.inputViewController?.priceFormatter(text: item.lprice) 
         
     }
     

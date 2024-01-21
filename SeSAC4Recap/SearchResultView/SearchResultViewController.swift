@@ -40,8 +40,11 @@ class SearchResultViewController: UIViewController {
         //        })
         page = 0
         searchManager.callRequest(text: text, page: page) { value in
+            
             self.shoppingList = value
-            self.numberOfResultLabel.text = "\(self.shoppingList.total) 개의 검색 결과"
+            
+            let totalNum = self.priceFormatter(text: String(self.shoppingList.total))
+            self.numberOfResultLabel.text = "\(totalNum) 개의 검색 결과"
         }
         
         setUI()
@@ -105,6 +108,7 @@ extension SearchResultViewController {
         button.layer.borderColor = UIColor.textColor.cgColor
         button.layer.borderWidth = 1
     }
+    
 }
 
 extension SearchResultViewController: UICollectionViewDelegate, UICollectionViewDataSource {
@@ -121,7 +125,7 @@ extension SearchResultViewController: UICollectionViewDelegate, UICollectionView
         
         return cell
     }
-    // TODO: 웹킷뷰와 연결 및 네비게이션 타이틀 상품이름으로
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         let vc = storyboard?.instantiateViewController(withIdentifier: ProductDetailViewController.identifier) as! ProductDetailViewController

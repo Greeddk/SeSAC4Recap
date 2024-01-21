@@ -105,13 +105,25 @@ extension SetProfileViewController {
             nickInfoLabel.text = "사용할 수 있는 닉네임입니다"
             nickInfoLabel.textColor = .point
             
-            let sb = UIStoryboard(name: storyboardName.main.rawValue, bundle: nil)
-            let vc = sb.instantiateViewController(withIdentifier: tabBarName.mainTabBar.rawValue) as! UITabBarController
-            
             udManager.nickname = nicknameTextField.text!
             udManager.userState = true
             
-            navigationController?.pushViewController(vc, animated: true)
+            if userState {
+                
+                navigationController?.popViewController(animated: true)
+            
+            } else {
+                
+                let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
+                let sceneDelegate = windowScene?.delegate as? SceneDelegate
+                
+                let vc = storyboard?.instantiateViewController(withIdentifier: tabBarName.mainTabBar.rawValue) as! UITabBarController
+//                let nav = UINavigationController(rootViewController: vc)
+                
+                sceneDelegate?.window?.rootViewController = vc
+                sceneDelegate?.window?.makeKeyAndVisible()
+                
+            }
             
         } else {
             nickInfoLabel.text = "닉네임을 올바르게 입력해주세요"

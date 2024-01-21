@@ -18,6 +18,11 @@ class SettingViewController: UIViewController {
             settingTableView.reloadData()
         }
     }
+    var nickname = UserDefaultsManager.shared.nickname {
+        didSet {
+            settingTableView.reloadData()
+        }
+    }
     let list = settingOptionsName.allCases
     
     override func viewDidLoad() {
@@ -29,7 +34,11 @@ class SettingViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
         profileImage = udManager.userImage
+        setUI()
+        nickname = udManager.nickname
+        
     }
 
 }
@@ -39,8 +48,7 @@ extension SettingViewController {
     private func setUI() {
         
         setBackgroundColor()
-        setNavigation(text: "", backButton: false)
-        tabBarController?.title = "설정"
+        setNavigation(text: "설정", backButton: false)
         
     }
     
@@ -85,6 +93,7 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(withIdentifier: SettingProfileTableViewCell.identifier, for: indexPath) as! SettingProfileTableViewCell
             
             cell.profileImageView.image = UIImage(named: profileImage)
+            cell.setNickname(nickname: nickname)
             
             return cell
             
@@ -120,6 +129,7 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
         if indexPath.section == 0 {
             
             let vc = storyboard?.instantiateViewController(withIdentifier: SetProfileViewController.identifier) as! SetProfileViewController
+
             navigationController?.pushViewController(vc, animated: true)
             
         } else if indexPath.row == 4 {
@@ -134,10 +144,18 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
         
         let confirmButton = UIAlertAction(title: "확인", style: .default) { _ in
             UserDefaults.resetUserDefaults()
-            let vc = self.storyboard?.instantiateViewController(withIdentifier: OnboardingViewController.identifier) as! OnboardingViewController
             
-            self.navigationController?.pushViewController(vc, animated: true)
+            let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
+            let sceneDelegate = windowScene?.delegate as? SceneDelegate
+            
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: OnboardingViewController.identifier) as! OnboardingViewController
+            let nav = UINavigationController(rootViewController: vc)
+            
+            sceneDelegate?.window?.rootViewController = nav
+            sceneDelegate?.window?.makeKeyAndVisible()
+            
         }
+        
         let cancelButton = UIAlertAction(title: "취소", style: .cancel)
         
         alert.addAction(confirmButton)

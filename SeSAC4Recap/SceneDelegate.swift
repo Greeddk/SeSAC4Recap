@@ -35,9 +35,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             
             let sb = UIStoryboard(name: storyboardName.main.rawValue, bundle: nil)
             let vc = sb.instantiateViewController(withIdentifier: tabBarName.mainTabBar.rawValue) as! UITabBarController
-            let nav = UINavigationController(rootViewController: vc)
             
-            window?.rootViewController = nav
+            window?.rootViewController = vc
             window?.makeKeyAndVisible()
             
         }
