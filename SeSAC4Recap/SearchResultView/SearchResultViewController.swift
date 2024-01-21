@@ -28,6 +28,8 @@ class SearchResultViewController: UIViewController {
         }
     }
     
+    var page = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -36,7 +38,8 @@ class SearchResultViewController: UIViewController {
         //        searchManager.callRequest(text: list.last!, completionhandler: { value in
         //            self.shoppingList = value
         //        })
-        searchManager.callRequest(text: text) { value in
+        page = 0
+        searchManager.callRequest(text: text, page: page) { value in
             self.shoppingList = value
             self.numberOfResultLabel.text = "\(self.shoppingList.total) 개의 검색 결과"
         }
@@ -72,6 +75,7 @@ extension SearchResultViewController {
         
         searchResultCollectionView.dataSource = self
         searchResultCollectionView.delegate = self
+        searchResultCollectionView.prefetchDataSource = self
         
         searchResultCollectionView.backgroundColor = .clear
         
@@ -125,6 +129,27 @@ extension SearchResultViewController: UICollectionViewDelegate, UICollectionView
         vc.item = shoppingList.items[indexPath.item]
         
         navigationController?.pushViewController(vc, animated: true)
+        
+    }
+    
+}
+
+extension SearchResultViewController: UICollectionViewDataSourcePrefetching {
+    
+    func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
+        
+        for item in indexPaths {
+            if shoppingList.items.count - 3 == item.item {
+                page += 1
+                searchManager.callRequest(text: udManager.searchKeyword, page: page) { value in
+                    self.shoppingList.items.append(contentsOf: value.items)
+                }
+            }
+        }
+        
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cancelPrefetchingForItemsAt indexPaths: [IndexPath]) {
         
     }
     

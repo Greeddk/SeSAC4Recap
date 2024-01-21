@@ -171,7 +171,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
         list.reverse()
         
         let text = list[indexPath.row]
-        
+  
         udManager.searchKeyword = text
         
         vc.configureNavigationBar(text: text)
