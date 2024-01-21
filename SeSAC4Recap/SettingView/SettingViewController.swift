@@ -11,6 +11,13 @@ class SettingViewController: UIViewController {
 
     @IBOutlet var settingTableView: UITableView!
     
+    let udManager = UserDefaultsManager.shared
+    
+    var profileImage = UserDefaultsManager.shared.userImage {
+        didSet {
+            settingTableView.reloadData()
+        }
+    }
     let list = settingOptionsName.allCases
     
     override func viewDidLoad() {
@@ -18,6 +25,11 @@ class SettingViewController: UIViewController {
 
         setUI()
         setTableView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        profileImage = udManager.userImage
     }
 
 }
@@ -48,6 +60,7 @@ extension SettingViewController {
         settingTableView.register(optionXib, forCellReuseIdentifier: SettingOptionTableViewCell.identifier)
         
     }
+    
 }
 
 extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
@@ -70,8 +83,9 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
         if indexPath.section == 0 {
             
             let cell = tableView.dequeueReusableCell(withIdentifier: SettingProfileTableViewCell.identifier, for: indexPath) as! SettingProfileTableViewCell
-            cell.isOpaque = true
-            cell.layer.opacity = 0.2
+            
+            cell.profileImageView.image = UIImage(named: profileImage)
+            
             return cell
             
         } else {
@@ -80,12 +94,8 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
             
             cell.configureCell(text: list[indexPath.row].rawValue)
             
-            if indexPath.section == 0 || indexPath.row == 4 {
-                
-            } else {
-                
+            if indexPath.row != 4 {
                 cell.selectionStyle = .none
-                
             }
             
             return cell
@@ -109,11 +119,11 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
         
         if indexPath.section == 0 {
             
-           
+            let vc = storyboard?.instantiateViewController(withIdentifier: SetProfileViewController.identifier) as! SetProfileViewController
+            navigationController?.pushViewController(vc, animated: true)
+            
         } else if indexPath.row == 4 {
-            
             showAlert()
-            
         }
         
     }
@@ -122,12 +132,18 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
         
         let alert = UIAlertController(title: "처음부터 시작하기", message: "데이터를 모두 초기화하시겠습니까?", preferredStyle: .alert)
         
-        let comfirmButton = UIAlertAction(title: "확인", style: .default)
+        let confirmButton = UIAlertAction(title: "확인", style: .default) { _ in
+            UserDefaults.resetUserDefaults()
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: OnboardingViewController.identifier) as! OnboardingViewController
+            
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
         let cancelButton = UIAlertAction(title: "취소", style: .cancel)
         
-        alert.addAction(comfirmButton)
+        alert.addAction(confirmButton)
         alert.addAction(cancelButton)
         
         present(alert, animated: true)
     }
+
 }

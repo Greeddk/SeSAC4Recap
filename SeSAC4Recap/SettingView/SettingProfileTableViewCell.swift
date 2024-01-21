@@ -30,12 +30,12 @@ extension SettingProfileTableViewCell {
         
         backgroundColor = .backViewColor
         
-        profileImageView.setRoundProfileImage()
+        profileImageView.setRoundProfileImage(isBorder: true)
         profileImageView.image = UIImage(named: udManager.userImage)
         
         nicknameLabel.font = .largeTitleBold
         nicknameLabel.textColor = .textColor
-        nicknameLabel.text = udManager.nickname
+        nicknameLabel.text = "떠나고싶은 \(udManager.nickname)"
         
         userFavoriteInfoLabel.font = .largeBold
         userFavoriteInfoLabel.textColor = .textColor

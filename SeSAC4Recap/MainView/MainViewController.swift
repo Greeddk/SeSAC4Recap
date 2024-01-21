@@ -56,9 +56,11 @@ extension MainViewController {
         
         setBackgroundColor()
         
+        
         let nickname = UserDefaultsManager.shared.nickname
         setNavigation(text: "", backButton: false)
         tabBarController?.title = "떠나고싶은 \(nickname)님의 새싹쇼핑"
+        tabBarController?.navigationItem.setHidesBackButton(true, animated: true)
         
         headerBackView.backgroundColor = .clear
         

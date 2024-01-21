@@ -10,6 +10,7 @@ import Foundation
 class UserDefaultsManager {
     
     static let shared = UserDefaultsManager()
+    static let profileList: [String] = ["profile1", "profile2", "profile3", "profile4", "profile5", "profile6", "profile7", "profile8", "profile9", "profile10", "profile11", "profile12", "profile13", "profile14"]
     
     enum UDKey: String {
         case nickname
@@ -67,4 +68,12 @@ class UserDefaultsManager {
     }
 
     
+}
+
+extension UserDefaults {
+    static func resetUserDefaults() {
+        if let bundleID = Bundle.main.bundleIdentifier {
+            UserDefaults.standard.removePersistentDomain(forName: bundleID)
+        }
+    }
 }

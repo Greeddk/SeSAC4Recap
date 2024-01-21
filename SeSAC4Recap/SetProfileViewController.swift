@@ -10,11 +10,10 @@ import TextFieldEffects
 
 class SetProfileViewController: UIViewController {
     
-    let profileList: [String] = ["profile1", "profile2", "profile3", "profile4", "profile5", "profile6", "profile7", "profile8", "profile9", "profile10", "profile11", "profile12", "profile13", "profile14"]
-    
     var isValidated: Bool = false
     
     let udManager = UserDefaultsManager.shared
+    let userState = UserDefaultsManager.shared.userState
     
     @IBOutlet var roundedProfileImage: UIImageView!
     @IBOutlet var camLogoImage: UIImageView!
@@ -28,8 +27,23 @@ class SetProfileViewController: UIViewController {
         setDelegate()
         setNavigation(text: "프로필 설정", backButton: true)
         setUI()
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        let image = udManager.userImage
+        roundedProfileImage.image = UIImage(named: image)
     }
      
+    @objc func tapGestureTapped() {
+        
+        let vc = storyboard?.instantiateViewController(withIdentifier: SelectProfileViewController.identifier) as! SelectProfileViewController
+        navigationController?.pushViewController(vc, animated: true)
+        print(#function)
+    }
+
 }
 
 extension SetProfileViewController {
@@ -39,15 +53,31 @@ extension SetProfileViewController {
         nicknameTextField.delegate = self
     }
     
+    private func setProfileImage() {
+        
+        if !userState {
+            
+            let image = UserDefaultsManager.profileList[Int.random(in: 0...13)]
+            udManager.userImage = image
+            
+            roundedProfileImage.image = UIImage(named: image)
+            
+        } else {
+            
+            let image = udManager.userImage
+            roundedProfileImage.image = UIImage(named: image)
+            
+        }
+    }
     private func setUI() {
         
         setBackgroundColor()
-        
-        let image = profileList[Int.random(in: 0...13)]
-        udManager.userImage = image
-        
-        roundedProfileImage.image = UIImage(named: image)
-        roundedProfileImage.setRoundProfileImage()
+        setProfileImage()
+
+        roundedProfileImage.setRoundProfileImage(isBorder: true)
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapGestureTapped))
+        roundedProfileImage.addGestureRecognizer(tapGesture)
+        roundedProfileImage.isUserInteractionEnabled = true
         
         camLogoImage.image = .camera
         
@@ -73,6 +103,7 @@ extension SetProfileViewController {
         if isValidated {
             
             nickInfoLabel.text = "사용할 수 있는 닉네임입니다"
+            nickInfoLabel.textColor = .point
             
             let sb = UIStoryboard(name: storyboardName.main.rawValue, bundle: nil)
             let vc = sb.instantiateViewController(withIdentifier: tabBarName.mainTabBar.rawValue) as! UITabBarController
@@ -84,6 +115,7 @@ extension SetProfileViewController {
             
         } else {
             nickInfoLabel.text = "닉네임을 올바르게 입력해주세요"
+            nickInfoLabel.textColor = .orange
         }
     }
     
@@ -94,25 +126,24 @@ extension SetProfileViewController: UITextFieldDelegate {
     
     func textFieldDidChangeSelection(_ textField: UITextField) {
         
-    }
-
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-
-        var text = textField.text
+        let text = textField.text
         if text!.count < 2 || text!.count >= 10 {
             nickInfoLabel.text = "2글자 이상 10글자 미만으로 설정해주세요"
+            nickInfoLabel.textColor = .red
             isValidated = false
         } else if text!.contains("@") || text!.contains("#") || text!.contains("$") || text!.contains("%") {
             nickInfoLabel.text = "닉네임에 @,#,$,% 는 포함할 수 없어요"
+            nickInfoLabel.textColor = .red
             isValidated = false
         } else if text!.contains("0") || text!.contains("1") || text!.contains("2") || text!.contains("3") || text!.contains("4") || text!.contains("5") || text!.contains("6") || text!.contains("7") || text!.contains("8") || text!.contains("9") {
             nickInfoLabel.text = "닉네임에 숫자는 포함할 수 없어요"
+            nickInfoLabel.textColor = .red
             isValidated = false
         } else {
             nickInfoLabel.text = nil
             isValidated = true
         }
         
-        return true
     }
+
 }

@@ -27,6 +27,8 @@ extension OnboardingViewController {
         
         setBackgroundColor()
         
+        navigationItem.setHidesBackButton(true, animated: true)
+        
         appTitleImage.image = .sesacShopping
         
         logoImage.image = .onboarding
