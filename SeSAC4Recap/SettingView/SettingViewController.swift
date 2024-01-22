@@ -19,6 +19,7 @@ class SettingViewController: UIViewController {
         }
     }
     var nickname = UserDefaultsManager.shared.nickname
+    var favoriteCount = UserDefaultsManager.shared.favoriteList.count
     let list = settingOptionsName.allCases
     
     override func viewDidLoad() {
@@ -30,9 +31,10 @@ class SettingViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        //TODO: 실시간으로 좋아요 개수 반영되는 거
-        profileImage = udManager.userImage
+
         nickname = udManager.nickname
+        favoriteCount = udManager.favoriteList.count
+        profileImage = udManager.userImage
         
     }
 
@@ -88,7 +90,7 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(withIdentifier: SettingProfileTableViewCell.identifier, for: indexPath) as! SettingProfileTableViewCell
             
             cell.profileImageView.image = UIImage(named: profileImage)
-            cell.setNickname(nickname: nickname)
+            cell.configurCell(nickname: nickname, count: favoriteCount)
             
             return cell
             

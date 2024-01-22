@@ -21,7 +21,6 @@ class MainViewController: UIViewController {
     var searchKeywords = UserDefaultsManager.shared.searchList {
         didSet {
             searchTableView.reloadData()
-            setUI()
         }
     }
     
@@ -46,6 +45,16 @@ class MainViewController: UIViewController {
         
         searchKeywords = []
         udManager.searchList = []
+        
+    }
+    
+    
+    @objc private func deleteButtonClicked(sender: UIButton) {
+        
+        var list = searchKeywords
+        list.remove(at: sender.tag)
+        udManager.searchList = list
+        searchKeywords = udManager.searchList
         
     }
     
@@ -144,7 +153,8 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
             list.reverse()
             
             cell.configureCell(text: list[indexPath.row])
-            cell.index = indexPath.row
+            cell.deleteButton.tag = indexPath.row
+            cell.deleteButton.addTarget(self, action: #selector(deleteButtonClicked(sender:)), for: .touchUpInside)
             
             return cell
             
@@ -162,8 +172,6 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        // TODO: delete 버튼 눌렀을 땐 그 항목 삭제
         
         tableView.reloadRows(at: [indexPath], with: .fade)
         

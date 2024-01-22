@@ -14,12 +14,13 @@ class SettingProfileTableViewCell: UITableViewCell {
     @IBOutlet var userFavoriteInfoLabel: UILabel!
     
     let udManager = UserDefaultsManager.shared
-    let favoriteCount = UserDefaultsManager.shared.favoriteList.count
+    var favoriteCount: Int = 0
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        setUI()
+        self.setUI()
+        
     }
 
 }
@@ -38,15 +39,17 @@ extension SettingProfileTableViewCell {
         
         userFavoriteInfoLabel.font = .largeBold
         userFavoriteInfoLabel.textColor = .textColor
-        let text = "\(favoriteCount)개의 상품을 좋아하고 있어요!"
-        userFavoriteInfoLabel.text = text
-        changeTextColor(text: text)
         
     }
     
-    func setNickname(nickname: String) {
+    func configurCell(nickname: String, count: Int) {
         
         nicknameLabel.text = "떠나고싶은 \(nickname)"
+        
+        favoriteCount = count
+        let text = "\(favoriteCount)개의 상품을 좋아하고 있어요!"
+        userFavoriteInfoLabel.text = text
+        changeTextColor(text: text)
         
     }
     

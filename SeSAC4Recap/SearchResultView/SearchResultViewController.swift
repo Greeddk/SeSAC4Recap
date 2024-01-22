@@ -9,21 +9,21 @@ import UIKit
 
 class SearchResultViewController: UIViewController {
     
-    enum buttonName: String {
+    enum ButtonName: String {
         case accurateFilterButton = "정확도"
         case dateFilterButton = "날짜순"
         case highPriceFilterButton = "가격높은순"
         case lowPriceFilterButton = "가격낮은순"
     }
     
-    enum searchSort: String {
+    enum SearchSort: String {
         case sim
         case date
         case asc
         case dsc
     }
     
-    var sort = searchSort.sim.rawValue
+    var sort = SearchSort.sim.rawValue
     
     @IBOutlet var numberOfResultLabel: UILabel!
     
@@ -58,7 +58,7 @@ class SearchResultViewController: UIViewController {
     
     @IBAction func accurateFilterClicked(_ sender: UIButton) {
         
-        sort = searchSort.sim.rawValue
+        sort = SearchSort.sim.rawValue
         callAPI()
         
         configureSelectedFilterButton(button: accurateFilterButton, text: "정확도")
@@ -69,7 +69,7 @@ class SearchResultViewController: UIViewController {
     
     @IBAction func dateFilterClicked(_ sender: UIButton) {
         
-        sort = searchSort.date.rawValue
+        sort = SearchSort.date.rawValue
         callAPI()
         
         configureNormalFilterButton(button: accurateFilterButton, text: "정확도")
@@ -80,7 +80,7 @@ class SearchResultViewController: UIViewController {
     
     @IBAction func highpriceFilterClicked(_ sender: UIButton) {
         
-        sort = searchSort.dsc.rawValue
+        sort = SearchSort.dsc.rawValue
         callAPI()
         
         configureNormalFilterButton(button: accurateFilterButton, text: "정확도")
@@ -91,7 +91,7 @@ class SearchResultViewController: UIViewController {
     
     @IBAction func lowpriceFilterClicked(_ sender: UIButton) {
         
-        sort = searchSort.asc.rawValue
+        sort = SearchSort.asc.rawValue
         callAPI()
         
         configureNormalFilterButton(button: accurateFilterButton, text: "정확도")

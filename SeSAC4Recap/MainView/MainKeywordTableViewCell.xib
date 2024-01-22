@@ -31,9 +31,6 @@
                         </constraints>
                         <state key="normal" title="Button"/>
                         <buttonConfiguration key="configuration" style="plain" title="Button"/>
-                        <connections>
-                            <action selector="deleteButtonClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="SU3-eH-0eQ"/>
-                        </connections>
                     </button>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cco-Md-A7k">
                         <rect key="frame" x="20" y="24" width="24" height="24"/>
@@ -55,7 +52,7 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="deleteButton" destination="q92-mm-sAx" id="fnV-H9-LUe"/>
+                <outlet property="deleteButton" destination="q92-mm-sAx" id="v4N-SW-HIU"/>
                 <outlet property="searchImageView" destination="cco-Md-A7k" id="Xzo-Zd-9Rs"/>
                 <outlet property="searchedKeyword" destination="pTp-7D-5X4" id="gWv-hr-I9L"/>
             </connections>
