@@ -94,7 +94,6 @@ extension MainViewController {
             
             allClearButton.setTitleColor(.backgroundColor, for: .normal)
             
-            searchTableView.allowsSelection = false
             
         } else {
             
@@ -143,11 +142,25 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
         
         if searchKeywords.isEmpty {
             
+            tableView.allowsSelection = false
+            tableView.isScrollEnabled = false
+            
+            headerLabel.textColor = .backgroundColor
+            
+            allClearButton.setTitleColor(.backgroundColor, for: .normal)
+            
             let cell = tableView.dequeueReusableCell(withIdentifier: MainImageTableViewCell.identifier) as! MainImageTableViewCell
             
             return cell
             
         } else {
+            
+            tableView.allowsSelection = true
+            tableView.isScrollEnabled = true
+            
+            headerLabel.textColor = .textColor
+            
+            allClearButton.setTitleColor(.point, for: .normal)
             
             let cell = tableView.dequeueReusableCell(withIdentifier: MainKeywordTableViewCell.identifier, for: indexPath) as! MainKeywordTableViewCell
             
