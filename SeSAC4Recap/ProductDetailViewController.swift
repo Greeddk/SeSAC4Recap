@@ -14,6 +14,9 @@ class ProductDetailViewController: UIViewController {
     
     var item: Item = Item(title: "", link: "", image: "", lprice: "", productId: "", mallName: "")
     
+    let udManager = UserDefaultsManager.shared
+    let favoriteList = UserDefaultsManager.shared.favoriteList
+    
     lazy var isFavorite: Bool = UserDefaultsManager.shared.favoriteList.contains(item.productId) {
         didSet {
             setFavoriteButton()
@@ -34,11 +37,15 @@ extension ProductDetailViewController {
         
         setBackgroundColor()
         
-        setNavigation(text: item.title, backButton: true)
+        tabBarController?.tabBar.barTintColor = .backgroundColor
+        
+        var itemName = item.title.replacingOccurrences(of: "<b>", with: "")
+        itemName = itemName.replacingOccurrences(of: "</b>", with: "")
+        
+        setNavigation(text: itemName, backButton: true)
         
         setFavoriteButton()
         
-        // TODO: webkit
         guard let url = URL(string: "https://msearch.shopping.naver.com/product/\(item.productId)") else { return }
         productDetailWebView.load(URLRequest(url: url))
         
@@ -55,6 +62,21 @@ extension ProductDetailViewController {
     @objc private func favoriteButtonClicked() {
         
         isFavorite.toggle()
+        
+        if isFavorite {
+
+            var list = udManager.favoriteList
+            list.append(item.productId)
+            udManager.favoriteList = list
+            
+        } else {
+            
+            guard let index = favoriteList.firstIndex(of: item.productId) else { return }
+            var list = favoriteList
+            list.remove(at: index)
+            udManager.favoriteList = list
+              
+        }
     }
     
 }

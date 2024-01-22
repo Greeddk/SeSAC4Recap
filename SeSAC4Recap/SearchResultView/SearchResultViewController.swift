@@ -36,7 +36,11 @@ class SearchResultViewController: UIViewController {
     
     let searchManager = NaverAPIManager()
     let udManager = UserDefaultsManager.shared
-    
+    var favoriteList = UserDefaultsManager.shared.favoriteList {
+        didSet {
+            searchResultCollectionView.reloadData()
+        }
+    }
     var shoppingList = ShoppingList(total: 0, start: 0, display: 0, items: []) {
         didSet {
             searchResultCollectionView.reloadData()
@@ -53,6 +57,12 @@ class SearchResultViewController: UIViewController {
         setUI()
         configureCollectionView()
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        favoriteList = UserDefaultsManager.shared.favoriteList
     }
     
     
@@ -165,19 +175,6 @@ extension SearchResultViewController {
         
     }
     
-//    func setFilterButton(button: UIButton) {
-//        let buttonList = [accurateFilterButton, dateFilterButton, highPriceFilterButton, lowPriceFilterButton]
-//        
-//        for item in buttonList {
-//            if item == button {
-//                configureSelectedFilterButton(button: item, text: buttonName.item.rawvalue)
-//            } else {
-//                configureNormalFilterButton(button: item, text: buttonName(rawValue: item))
-//            }
-//        }
-//        
-//    }
-    
     func configureSelectedFilterButton(button: UIButton, text: String) {
         
         button.setTitle(text, for: .normal)
@@ -212,8 +209,9 @@ extension SearchResultViewController: UICollectionViewDelegate, UICollectionView
         
         let item = shoppingList.items[indexPath.item]
         cell.configureCell(item: item)
+        cell.favoriteButton.tag = Int(shoppingList.items[indexPath.item].productId)!
         
-        let favoriteList = udManager.favoriteList
+        cell.favoriteButton.addTarget(self, action: #selector(changeFavoriteValue(sender:)), for: .touchUpInside)
         
         if favoriteList.contains(item.productId) {
             cell.favoriteButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
@@ -222,6 +220,29 @@ extension SearchResultViewController: UICollectionViewDelegate, UICollectionView
         }
         
         return cell
+        
+    }
+    
+    @objc func changeFavoriteValue(sender: UIButton) {
+        
+        if !favoriteList.contains(String(sender.tag)) {
+            
+            sender.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+            
+            var list = udManager.favoriteList
+            list.append(String(sender.tag))
+            udManager.favoriteList = list
+            
+        } else {
+            
+            sender.setImage(UIImage(systemName: "heart"), for: .normal)
+            print(favoriteList)
+            guard let index = favoriteList.firstIndex(of: String(sender.tag)) else { return }
+            var list = favoriteList
+            list.remove(at: index)
+            udManager.favoriteList = list
+            print(favoriteList)
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

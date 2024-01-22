@@ -55,9 +55,6 @@
                         </constraints>
                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                         <state key="normal" title="Button"/>
-                        <connections>
-                            <action selector="favoriteButtonClicked:" destination="gTV-IL-0wX" eventType="touchUpInside" id="jH5-mT-zE3"/>
-                        </connections>
                     </button>
                 </subviews>
             </view>

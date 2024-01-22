@@ -18,37 +18,14 @@ class SearchResultCollectionViewCell: UICollectionViewCell {
     @IBOutlet var priceLabel: UILabel!
     
     let udManager = UserDefaultsManager.shared
+    var favoriteList = UserDefaultsManager.shared.favoriteList
     
     var productID = ""
-    var isClicked: Bool = false
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
         setUI()
-        print(udManager.favoriteList)
-    }
-
-    @IBAction func favoriteButtonClicked(_ sender: UIButton) {
-        
-        isClicked.toggle()
-        
-        if isClicked {
-            favoriteButton.setImage(UIImage(systemName: "heart.fill"), for: .normal)
-            
-            var list = udManager.favoriteList
-            list.append(productID)
-            udManager.favoriteList = list
-            
-        } else {
-            
-//            if udManager.favoriteList.contains(productID) {
-//                UserDefaults.standard.removeElement(productID, forKey: UserDefaultsManager.UDKey.favoriteList.rawValue)
-//                print(udManager.favoriteList)
-//            }
-            
-            favoriteButton.setImage(UIImage(systemName: "heart"), for: .normal)
-        }
     }
     
 }

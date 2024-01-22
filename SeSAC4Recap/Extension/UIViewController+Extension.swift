@@ -17,6 +17,7 @@ extension UIViewController {
         
         navigationItem.title = text
         navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.textColor]
+        navigationController?.navigationBar.backgroundColor = .backgroundColor
         
         navigationItem.setHidesBackButton(true, animated: true)
         
@@ -45,4 +46,5 @@ extension UIViewController {
         
         navigationController?.popViewController(animated: true)
     }
+    
 }

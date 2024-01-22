@@ -38,6 +38,7 @@ class MainViewController: UIViewController {
         
         let nickname = UserDefaultsManager.shared.nickname
         setNavigation(text: "\(nickname)님의 새싹쇼핑", backButton: false)
+        userSearchBar.text = ""
         
     }
 
@@ -65,6 +66,7 @@ extension MainViewController {
     private func configureTabBar() {
         
         tabBarController?.tabBar.tintColor = .point
+        tabBarController?.tabBar.backgroundColor = .backgroundColor
         tabBarController?.tabBar.unselectedItemTintColor = .systemGray
         
     }

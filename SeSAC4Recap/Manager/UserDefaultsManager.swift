@@ -88,15 +88,4 @@ extension UserDefaults {
         }
     }
     
-    func removeElement(_ element: String, forKey key: String) {
-        
-        if var array = array(forKey: key) as? [String] {
-            if let index = array.firstIndex(of: element) {
-                array.remove(at: index)
-                set(array, forKey: key)
-            }
-        }
-        
-    }
-    
 }

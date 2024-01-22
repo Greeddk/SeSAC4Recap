@@ -41,7 +41,7 @@ class SetProfileViewController: UIViewController {
         
         let vc = storyboard?.instantiateViewController(withIdentifier: SelectProfileViewController.identifier) as! SelectProfileViewController
         navigationController?.pushViewController(vc, animated: true)
-        print(#function)
+       
     }
 
 }
