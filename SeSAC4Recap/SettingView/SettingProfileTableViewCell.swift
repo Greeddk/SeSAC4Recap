@@ -44,7 +44,7 @@ extension SettingProfileTableViewCell {
     
     func configurCell(nickname: String, count: Int) {
         
-        nicknameLabel.text = "떠나고싶은 \(nickname)"
+        nicknameLabel.text = "\(nickname)"
         
         favoriteCount = count
         let text = "\(favoriteCount)개의 상품을 좋아하고 있어요!"
